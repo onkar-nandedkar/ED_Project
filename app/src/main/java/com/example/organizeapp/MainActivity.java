@@ -34,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(link);
             }
         });
+
+        CardView examSchedule = findViewById(R.id.toExam);
+        examSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent link = new Intent(MainActivity.this , ExamsAndAssignments.class);
+                startActivity(link);
+            }
+        });
         /*String titles[] = {"To do List","Exam Schedule","Focus Mode","Resource Manager"};
         ListView lv = findViewById(R.id.topics);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,titles);

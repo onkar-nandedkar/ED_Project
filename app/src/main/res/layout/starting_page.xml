@@ -176,6 +176,7 @@
             app:cardCornerRadius="30dp"
             app:cardMaxElevation="20dp"
             android:layout_margin="20dp"
+            android:id="@+id/toExam"
             >
 
             <LinearLayout
@@ -191,7 +192,7 @@
                     android:layout_marginBottom="50dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="5dp"
-                    android:src="@color/black"
+                    android:src="@mipmap/exam"
                     >
 
                 </ImageView>
@@ -204,7 +205,6 @@
                     android:gravity="center"
                     android:textSize="30dp"
                     android:textColor="@color/purple_500"
-
                     >
 
                 </TextView>

@@ -21,7 +21,7 @@ public class DatabaseStore extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String createTable = "create table "+ TABLE_NAME + "(id INTEGER PRIMARY KEY, task TEXT)";
+        String createTable = "create table "+ TABLE_NAME + "(id INTEGER PRIMARY KEY, task TEXT , checks TEXT)";
         sqLiteDatabase.execSQL(createTable);
     }
 
@@ -68,5 +68,18 @@ public class DatabaseStore extends SQLiteOpenHelper {
         else{
             return false;
         }
+    }
+
+    @SuppressLint("Range")
+    public ArrayList getChecks() {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        ArrayList<String> arrayList = new ArrayList<String>();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from "+TABLE_NAME,null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            arrayList.add(cursor.getString(cursor.getColumnIndex("checks")));
+            cursor.moveToNext();
+        }
+        return  arrayList;
     }
 }
